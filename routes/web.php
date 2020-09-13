@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Resource Route for article.
+Route::resource('articles', ArticleController::class);
+// Route for get articles for yajra post request.
+Route::get('get-articles', [ArticleController::class, 'getArticles'])->name('get-articles');
